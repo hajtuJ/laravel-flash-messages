@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Facade;
  *
  * @see \FlashMessages\FlashMessage
  */
-
 class FlashMessage extends Facade
 {
-
     /**
      * Get the registered name of the component.
      *

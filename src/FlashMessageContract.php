@@ -3,8 +3,7 @@
 namespace FlashMessages;
 
 /**
- * Class FlashMessage
- * @package FlashMessages
+ * Class FlashMessage.
  */
 interface FlashMessageContract
 {
@@ -12,6 +11,7 @@ interface FlashMessageContract
 
     /**
      * @param string $type
+     *
      * @return string
      */
     public function getMacroName(string $type): string;

@@ -2,12 +2,11 @@
 
 namespace FlashMessages\Tests;
 
-use \Orchestra\Testbench\TestCase as OrchestraTestCaste;
 use FlashMessages\FlashMessageContract;
+use Orchestra\Testbench\TestCase as OrchestraTestCaste;
 
 class TestCase extends OrchestraTestCaste
 {
-
     /**
      * Setup the test environment.
      */
@@ -26,7 +25,7 @@ class TestCase extends OrchestraTestCaste
     protected function getPackageAliases($app)
     {
         return [
-            "FlashMessages" => "FlashMessages/FlashMessage/Facades/FlashMessage",
+            'FlashMessages' => 'FlashMessages/FlashMessage/Facades/FlashMessage',
         ];
     }
 

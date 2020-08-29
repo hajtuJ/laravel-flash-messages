@@ -2,9 +2,9 @@
 
 namespace FlashMessages\Http\Middleware;
 
-use \Illuminate\Support\Facades\View;
 use Closure;
 use FlashMessages\FlashMessageContract;
+use Illuminate\Support\Facades\View;
 
 class SeedFlashMessageViewFromSession
 {

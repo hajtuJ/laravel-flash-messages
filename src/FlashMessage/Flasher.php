@@ -1,13 +1,11 @@
 <?php
 
-
 namespace FlashMessages\FlashMessage;
 
 use Illuminate\Contracts\Session\Session;
 
 /**
- * Class Flasher
- * @package FlashMessages\FlashMessage
+ * Class Flasher.
  */
 class Flasher
 {
@@ -20,6 +18,7 @@ class Flasher
 
     /**
      * Flasher constructor.
+     *
      * @param Session $session
      */
     public function __construct(Session $session)
@@ -70,7 +69,7 @@ class Flasher
     /**
      * @return array|null
      */
-    public function get():? array
+    public function get(): ?array
     {
         return $this->getSession()->get(self::KEY);
     }
