@@ -4,11 +4,8 @@ namespace FlashMessages;
 
 use FlashMessages\Http\Middleware\SeedFlashMessageViewFromSession;
 use FlashMessages\View\Components\Bootstrap;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\View;
 
 class FlashMessagesServiceProvider extends ServiceProvider
 {
@@ -38,7 +35,7 @@ class FlashMessagesServiceProvider extends ServiceProvider
             //views
             __DIR__.'/resources/views/flash-message' => resource_path('views/vendor/' . FlashMessageContract::NAMESPACE),
             //config
-            __DIR__ . '/config/flash-message.php' => config_path( FlashMessageContract::NAMESPACE . '.php'),
+            __DIR__ . '/config/flash-message.php' => config_path(FlashMessageContract::NAMESPACE . '.php'),
         ]);
 
         /**
@@ -66,5 +63,4 @@ class FlashMessagesServiceProvider extends ServiceProvider
         $router = $this->app['router'];
         $router->pushMiddlewareToGroup('web', SeedFlashMessageViewFromSession::class);
     }
-
 }

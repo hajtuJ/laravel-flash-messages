@@ -2,8 +2,8 @@
 
 namespace FlashMessages\Tests;
 
-use FlashMessages\FlashMessageContract;
 use \Orchestra\Testbench\TestCase as OrchestraTestCaste;
+use FlashMessages\FlashMessageContract;
 
 class TestCase extends OrchestraTestCaste
 {
@@ -26,7 +26,7 @@ class TestCase extends OrchestraTestCaste
     protected function getPackageAliases($app)
     {
         return [
-            "FlashMessages" => "FlashMessages/FlashMessage/Facades/FlashMessage"
+            "FlashMessages" => "FlashMessages/FlashMessage/Facades/FlashMessage",
         ];
     }
 
@@ -35,7 +35,7 @@ class TestCase extends OrchestraTestCaste
         /** @var FlashMessageContract $flashMessage */
         $flashMessage = app()->make(FlashMessageContract::class);
         $flashMessage->flashMessage($type, $text);
+
         return $flashMessage;
     }
-
 }

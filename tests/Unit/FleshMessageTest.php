@@ -6,7 +6,6 @@ use FlashMessages\Tests\TestCase;
 
 class FleshMessageTest extends TestCase
 {
-
     protected $caseData = ['text' => 'blah', 'type' => 'info'];
 
     /** @test */
@@ -25,7 +24,4 @@ class FleshMessageTest extends TestCase
         $setMessage = $flashMessage->getMessage();
         $this->assertNull($setMessage);
     }
-
-
-
 }
