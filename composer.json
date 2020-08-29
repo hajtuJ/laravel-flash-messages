@@ -1,0 +1,29 @@
+{
+    "name": "hajtuj/laravel-flash-messages",
+    "description": "Simple, session based flash messages for Laravel application.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Bolek",
+            "email": "bolek.sebastian@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "FlashMessages\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FlashMessages\\FlashMessagesServiceProvider"
+            ],
+            "aliases": {
+                "FlashMessage": "FlashMessages\\FlashMessage\\Facades\\FlashMessage"
+            }
+        }
+    }
+}
