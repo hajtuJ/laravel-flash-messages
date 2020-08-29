@@ -74,7 +74,7 @@ class FlashMessagesServiceProvider extends ServiceProvider
 
     private function getConfig()
     {
-        $config = $this->app->config['flash-message'];
+        $config = $this->app->config[FlashMessageContract::NAMESPACE];
         if (! $config) {
             return;
         }
