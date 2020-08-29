@@ -2,7 +2,7 @@
 
 namespace FlashMessages\View\Components;
 
-use \Illuminate\View\Component;
+use Illuminate\View\Component;
 
 class Bootstrap extends Component
 {

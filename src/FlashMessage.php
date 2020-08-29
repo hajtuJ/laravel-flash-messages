@@ -1,6 +1,5 @@
 <?php
 
-
 namespace FlashMessages;
 
 use FlashMessages\FlashMessage\Flasher;
@@ -9,8 +8,7 @@ use FlashMessages\FlashMessage\MessageMacroFactory;
 use FlashMessages\FlashMessage\Traits\UseConfigTrait as withConfig;
 
 /**
- * Class FlashMessage
- * @package FlashMessages
+ * Class FlashMessage.
  */
 class FlashMessage implements FlashMessageContract
 {
@@ -27,6 +25,7 @@ class FlashMessage implements FlashMessageContract
     /**
      * @param string $type
      * @param string $text
+     *
      * @return FlashMessage\Message
      */
     private function makeMessage(string $type, string $text)
@@ -52,6 +51,7 @@ class FlashMessage implements FlashMessageContract
 
     /**
      * @param string $type
+     *
      * @return string
      */
     public function getMacroName(string $type): string
@@ -80,7 +80,7 @@ class FlashMessage implements FlashMessageContract
     /**
      * @return array|null
      */
-    public function getMessage():? array
+    public function getMessage(): ?array
     {
         return $this->getFlasher()->get();
     }

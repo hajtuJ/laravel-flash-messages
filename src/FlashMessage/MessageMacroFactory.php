@@ -1,13 +1,11 @@
 <?php
 
-
 namespace FlashMessages\FlashMessage;
 
 use FlashMessages\FlashMessage\Traits\UseConfigTrait as WithConfig;
 
 /**
- * Class MessageMacro
- * @package FlashMessages\FlashMessage
+ * Class MessageMacro.
  */
 class MessageMacroFactory
 {
@@ -17,6 +15,6 @@ class MessageMacroFactory
     {
         $config = $this->getConfig();
 
-        return $config['macro']['prefix'] . $type . $config['macro']['suffix'];
+        return $config['macro']['prefix'].$type.$config['macro']['suffix'];
     }
 }

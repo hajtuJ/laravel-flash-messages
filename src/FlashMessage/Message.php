@@ -4,7 +4,6 @@ namespace FlashMessages\FlashMessage;
 
 class Message
 {
-
     /**
      * @var string
      */
@@ -17,7 +16,6 @@ class Message
 
     /**
      * @var string
-     *
      */
     protected $class;
 
@@ -76,13 +74,12 @@ class Message
         $this->class = $class;
     }
 
-
     public function toArray()
     {
         return [
-            'type' => $this->getType(),
+            'type'  => $this->getType(),
             'class' => $this->getClass(),
-            'text' => $this->getText(),
+            'text'  => $this->getText(),
         ];
     }
 }

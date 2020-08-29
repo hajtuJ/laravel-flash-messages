@@ -12,39 +12,39 @@ class FlashMessagesServiceProvider extends ServiceProvider
     public function boot()
     {
         /**
-         * Register service
+         * Register service.
          */
         $this->app->singleton(FlashMessageContract::class, function () {
             return new FlashMessage(config(FlashMessageContract::NAMESPACE));
         });
 
         /**
-         * Register aliases
+         * Register aliases.
          */
         $this->app->alias(\FlashMessages\FlashMessage\Facades\FlashMessage::class, 'FlashMessage');
 
         /**
-         * Load views
+         * Load views.
          */
         $this->loadViewsFrom(__DIR__.'/resources/views/flash-message', FlashMessageContract::NAMESPACE);
 
         /**
-         * Register publishes
+         * Register publishes.
          */
         $this->publishes([
             //views
-            __DIR__.'/resources/views/flash-message' => resource_path('views/vendor/' . FlashMessageContract::NAMESPACE),
+            __DIR__.'/resources/views/flash-message' => resource_path('views/vendor/'.FlashMessageContract::NAMESPACE),
             //config
-            __DIR__ . '/config/flash-message.php' => config_path(FlashMessageContract::NAMESPACE . '.php'),
+            __DIR__.'/config/flash-message.php' => config_path(FlashMessageContract::NAMESPACE.'.php'),
         ]);
 
         /**
-         * Load components
+         * Load components.
          */
-        $this->loadViewComponentsAs(FlashMessageContract::NAMESPACE, [ Bootstrap::class ]);
+        $this->loadViewComponentsAs(FlashMessageContract::NAMESPACE, [Bootstrap::class]);
 
         /**
-         * Register middlewares
+         * Register middlewares.
          */
         $this->registerMiddlewares();
     }
@@ -52,7 +52,7 @@ class FlashMessagesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/config/flash-message.php',
+            __DIR__.'/config/flash-message.php',
             FlashMessageContract::NAMESPACE
         );
     }

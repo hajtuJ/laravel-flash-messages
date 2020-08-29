@@ -4,7 +4,6 @@ namespace FlashMessages\FlashMessage\Traits;
 
 trait UseConfigTrait
 {
-
     /**
      * @var array
      */
@@ -12,6 +11,7 @@ trait UseConfigTrait
 
     /**
      * MessageMacro constructor.
+     *
      * @param array|null $config
      */
     public function __construct(array $config = null)
