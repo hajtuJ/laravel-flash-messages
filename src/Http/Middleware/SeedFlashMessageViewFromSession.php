@@ -16,7 +16,7 @@ class SeedFlashMessageViewFromSession
         $flashMessage = app()->make(FlashMessageContract::class);
 
         if ($flashMessage->hasMessage()) {
-            View::composer('flash-message::bootstrap', $flashMessage->getMessage());
+            View::composer('flash-message', $flashMessage->getMessage());
         }
 
         return $next($request);
