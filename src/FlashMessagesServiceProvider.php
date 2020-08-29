@@ -26,15 +26,29 @@ class FlashMessagesServiceProvider extends ServiceProvider
          */
         $this->app->alias(\FlashMessages\FlashMessage\Facades\FlashMessage::class, 'FlashMessage');
 
-
+        /**
+         * Load views
+         */
         $this->loadViewsFrom(__DIR__.'/resources/views/flash-message', FlashMessageContract::NAMESPACE);
+
+        /**
+         * Register publishes
+         */
         $this->publishes([
             //views
-            __DIR__.'/resources/views/flash-message' => resource_path('views/vendor/flash-message'),
+            __DIR__.'/resources/views/flash-message' => resource_path('views/vendor/' . FlashMessageContract::NAMESPACE),
             //config
-            __DIR__ . '/config/flash-message.php' => config_path('flash-message.php'),
+            __DIR__ . '/config/flash-message.php' => config_path( FlashMessageContract::NAMESPACE . '.php'),
         ]);
+
+        /**
+         * Load components
+         */
         $this->loadViewComponentsAs(FlashMessageContract::NAMESPACE, [ Bootstrap::class ]);
+
+        /**
+         * Register middlewares
+         */
         $this->registerMiddlewares();
     }
 
@@ -44,11 +58,6 @@ class FlashMessagesServiceProvider extends ServiceProvider
             __DIR__ . '/config/flash-message.php',
             FlashMessageContract::NAMESPACE
         );
-//        $config = $this->getConfig();
-//
-//        foreach($config['types'] as $type) {
-//            $this->registerViewMacros($type);
-//        }
     }
 
     private function registerMiddlewares()
@@ -58,27 +67,4 @@ class FlashMessagesServiceProvider extends ServiceProvider
         $router->pushMiddlewareToGroup('web', SeedFlashMessageViewFromSession::class);
     }
 
-    private function registerViewMacros($type)
-    {
-        View::macro($this->createMacroName($type), function (string $message = '') use ($type) {
-            $data = ['type' => $type, 'message' => $message, 'class' => $this->createClassName($type)];
-            $this->with('flashMessage', $data);
-            $viewFactory = App::make(Factory::class);
-            $viewFactory->composer(['flash-message::bootstrap'], function ($view) use ($data) {
-                $view->with('flashMessage', $data);
-            });
-
-            return $this;
-        });
-    }
-
-    private function getConfig()
-    {
-        $config = $this->app->config[FlashMessageContract::NAMESPACE];
-        if (! $config) {
-            return;
-        }
-
-        return $config;
-    }
 }
