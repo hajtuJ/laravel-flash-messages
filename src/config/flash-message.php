@@ -15,7 +15,7 @@ return [
      */
 
     'macro' => [
-        'suffix' => 'Msg'
+        'suffix' => 'Msg',
     ],
 
     /**

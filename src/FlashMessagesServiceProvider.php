@@ -2,21 +2,31 @@
 
 namespace FlashMessages;
 
-use Illuminate\Routing\Router;
-use Illuminate\View\View;
-use Illuminate\Support\Facades\App;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Support\ServiceProvider;
-use FlashMessages\View\Components\Bootstrap;
 use FlashMessages\Http\Middleware\SeedFlashMessageViewFromSession;
+use FlashMessages\View\Components\Bootstrap;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\View\View;
 
 class FlashMessagesServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        /**
+         * Register service
+         */
         $this->app->singleton(FlashMessageContract::class, function () {
             return new FlashMessage(config(FlashMessageContract::NAMESPACE));
         });
+
+        /**
+         * Register aliases
+         */
+        $this->app->alias(\FlashMessages\FlashMessage\Facades\FlashMessage::class, 'FlashMessage');
+
+
         $this->loadViewsFrom(__DIR__.'/resources/views/flash-message', FlashMessageContract::NAMESPACE);
         $this->publishes([
             //views
@@ -57,6 +67,7 @@ class FlashMessagesServiceProvider extends ServiceProvider
             $viewFactory->composer(['flash-message::bootstrap'], function ($view) use ($data) {
                 $view->with('flashMessage', $data);
             });
+
             return $this;
         });
     }

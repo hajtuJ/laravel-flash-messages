@@ -14,7 +14,7 @@ class Flasher
     const KEY = 'flash-message';
 
     /**
-     * @var Session $session
+     * @var Session
      */
     protected $session;
 

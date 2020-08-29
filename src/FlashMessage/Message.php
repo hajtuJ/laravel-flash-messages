@@ -6,17 +6,17 @@ class Message
 {
 
     /**
-     * @var $type string
+     * @var string
      */
     protected $type;
 
     /**
-     * @var $text string
+     * @var string
      */
     protected $text;
 
     /**
-     * @var $class string
+     * @var string
      *
      */
     protected $class;

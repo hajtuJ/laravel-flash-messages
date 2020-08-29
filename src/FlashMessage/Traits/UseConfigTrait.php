@@ -6,7 +6,7 @@ trait UseConfigTrait
 {
 
     /**
-     * @var $config array
+     * @var array
      */
     protected $config;
 

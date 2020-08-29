@@ -2,8 +2,20 @@
 
 namespace FlashMessages\FlashMessage\Facades;
 
-use Illuminate\Support\Facades\Facade;
 use FlashMessages\FlashMessageContract;
+use Illuminate\Support\Facades\Facade;
+
+/**
+ * Class FlashMessage.
+ *
+ * @method static string getMacroName(string $type);
+ * @method static void flashMessage(string $type, string $text);
+ * @method static bool  hasMessage();
+ * @method static null|array getMessage();
+ * @method static void forgetMessage();
+ *
+ * @see \FlashMessages\FlashMessage
+ */
 
 class FlashMessage extends Facade
 {

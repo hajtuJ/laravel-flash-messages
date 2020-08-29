@@ -16,6 +16,7 @@ class MessageMacroFactory
     public function getName(string $type): string
     {
         $config = $this->getConfig();
+
         return $config['macro']['prefix'] . $type . $config['macro']['suffix'];
     }
 }
