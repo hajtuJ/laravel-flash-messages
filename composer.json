@@ -25,6 +25,11 @@
             "FlashMessages\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "FlashMessages\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
