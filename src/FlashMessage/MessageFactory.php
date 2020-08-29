@@ -10,7 +10,6 @@ use FlashMessages\FlashMessage\Traits\UseConfigTrait as WithConfig;
  */
 class MessageFactory
 {
-
     use WithConfig;
 
     /**

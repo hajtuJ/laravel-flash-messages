@@ -2,7 +2,6 @@
 
 namespace FlashMessages\FlashMessage\Facades;
 
-
 use Illuminate\Support\Facades\Facade;
 use FlashMessages\FlashMessageContract;
 
@@ -14,6 +13,8 @@ class FlashMessage extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return FlashMessageContract::class; }
-
+    protected static function getFacadeAccessor()
+    {
+        return FlashMessageContract::class;
+    }
 }

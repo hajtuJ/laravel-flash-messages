@@ -3,7 +3,6 @@
 
 namespace FlashMessages\FlashMessage;
 
-
 use Illuminate\Contracts\Session\Session;
 
 /**
@@ -12,7 +11,6 @@ use Illuminate\Contracts\Session\Session;
  */
 class Flasher
 {
-
     const KEY = 'flash-message';
 
     /**
@@ -84,5 +82,4 @@ class Flasher
     {
         $this->getSession()->forget(self::KEY);
     }
-
 }

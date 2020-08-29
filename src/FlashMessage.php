@@ -3,7 +3,6 @@
 
 namespace FlashMessages;
 
-
 use FlashMessages\FlashMessage\Flasher;
 use FlashMessages\FlashMessage\MessageFactory;
 use FlashMessages\FlashMessage\MessageMacroFactory;
@@ -15,7 +14,6 @@ use FlashMessages\FlashMessage\Traits\UseConfigTrait as withConfig;
  */
 class FlashMessage implements FlashMessageContract
 {
-
     use withConfig;
 
     /**
@@ -94,5 +92,4 @@ class FlashMessage implements FlashMessageContract
     {
         $this->getFlasher()->forget();
     }
-
 }

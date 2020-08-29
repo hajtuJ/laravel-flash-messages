@@ -8,7 +8,6 @@ use \Illuminate\Support\Facades\View;
 
 class SeedFlashMessageViewFromSession
 {
-
     public function handle($request, Closure $next, $guard = null)
     {
         /**
@@ -17,10 +16,9 @@ class SeedFlashMessageViewFromSession
         $flashMessage = app()->make(FlashMessageContract::class);
 
         if ($flashMessage->hasMessage()) {
-            View::composer( 'flash-message::bootstrap', $flashMessage->getMessage());
+            View::composer('flash-message::bootstrap', $flashMessage->getMessage());
         }
 
         return $next($request);
     }
-
 }

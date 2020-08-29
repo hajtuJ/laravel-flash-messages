@@ -12,10 +12,9 @@ use FlashMessages\Http\Middleware\SeedFlashMessageViewFromSession;
 
 class FlashMessagesServiceProvider extends ServiceProvider
 {
-
     public function boot()
     {
-        $this->app->singleton(FlashMessageContract::class, function() {
+        $this->app->singleton(FlashMessageContract::class, function () {
             return new FlashMessage(config(FlashMessageContract::NAMESPACE));
         });
         $this->loadViewsFrom(__DIR__.'/resources/views/flash-message', FlashMessageContract::NAMESPACE);
@@ -32,7 +31,8 @@ class FlashMessagesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/config/flash-message.php', FlashMessageContract::NAMESPACE
+            __DIR__ . '/config/flash-message.php',
+            FlashMessageContract::NAMESPACE
         );
 //        $config = $this->getConfig();
 //
@@ -59,7 +59,6 @@ class FlashMessagesServiceProvider extends ServiceProvider
             });
             return $this;
         });
-
     }
 
     private function getConfig()
@@ -71,6 +70,4 @@ class FlashMessagesServiceProvider extends ServiceProvider
 
         return $config;
     }
-
-
 }

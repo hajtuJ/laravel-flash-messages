@@ -34,6 +34,4 @@ trait UseConfigTrait
     {
         $this->config = $config;
     }
-
-
 }

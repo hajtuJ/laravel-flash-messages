@@ -2,14 +2,12 @@
 
 namespace FlashMessages;
 
-
 /**
  * Class FlashMessage
  * @package FlashMessages
  */
 interface FlashMessageContract
 {
-
     const NAMESPACE = 'flash-message';
 
     /**
