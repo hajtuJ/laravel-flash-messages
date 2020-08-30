@@ -5,7 +5,7 @@ return [
     /**
      *  Types are used to name classes in html code of alerts but also to name traits.
      */
-    'types' => ['success', 'alert', 'danger', 'info', 'default'],
+    'types' => ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
 
     /**
      *  Macro suffix is added after name of type of alert
