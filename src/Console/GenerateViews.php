@@ -17,7 +17,7 @@ class GenerateViews extends Command
 
         $this->call('vendor:publish', [
             '--provider' => FlashMessagesServiceProvider::class,
-            '--tag' => "views",
+            '--tag'      => 'views',
         ]);
 
         $this->info('Views exported for Laravel Flash Messages');
