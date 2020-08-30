@@ -2,6 +2,8 @@
 
 namespace FlashMessages;
 
+use FlashMessages\Console\GenerateConfig;
+use FlashMessages\Console\GenerateViews;
 use FlashMessages\Http\Middleware\SeedFlashMessageViewFromSession;
 use FlashMessages\View\Components\Bootstrap;
 use Illuminate\Routing\Router;
@@ -32,11 +34,12 @@ class FlashMessagesServiceProvider extends ServiceProvider
          * Register publishes.
          */
         $this->publishes([
-            //views
-            __DIR__.'/resources/views/flash-message' => resource_path('views/vendor/'.FlashMessageContract::NAMESPACE),
-            //config
             __DIR__.'/config/flash-message.php' => config_path(FlashMessageContract::NAMESPACE.'.php'),
-        ]);
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/resources/views/flash-message' => resource_path('views/vendor/'.FlashMessageContract::NAMESPACE),
+        ], 'views');
 
         /**
          * Load components.
@@ -47,6 +50,16 @@ class FlashMessagesServiceProvider extends ServiceProvider
          * Register middlewares.
          */
         $this->registerMiddlewares();
+
+        /**
+         * Console commands register
+         */
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                GenerateConfig::class,
+                GenerateViews::class,
+            ]);
+        }
     }
 
     public function register()
