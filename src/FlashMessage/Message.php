@@ -77,9 +77,9 @@ class Message
     public function toArray()
     {
         return [
-            'type'  => $this->getType(),
+            'type' => $this->getType(),
             'class' => $this->getClass(),
-            'text'  => $this->getText(),
+            'text' => $this->getText(),
         ];
     }
 }
