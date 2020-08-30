@@ -52,7 +52,7 @@ class FlashMessagesServiceProvider extends ServiceProvider
         $this->registerMiddlewares();
 
         /**
-         * Console commands register
+         * Console commands register.
          */
         if ($this->app->runningInConsole()) {
             $this->commands([
