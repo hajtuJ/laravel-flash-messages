@@ -16,7 +16,7 @@ return [
     ],
 
     /**
-     * Class suffix is added to type of alert.
+     *  Types are used to name classes in html code of alerts
      */
     'class' => [
         'prefix' => 'alert-',

@@ -66,7 +66,7 @@ $ php artisan flash-message:views
 
 ```php
 /**
- *  Types are used to name classes in html code of alerts but also to name traits.
+ *  Types are used to name classes in html code of alerts
  */
 'types' => ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
 ```
@@ -75,7 +75,7 @@ $ php artisan flash-message:views
 
 ```php
 /**
-* Class suffix is added to type of alert.
+* Class prefix and suffix is added to type of alert to create class name
 */
 'class' => [
     'prefix' => 'alert-',
