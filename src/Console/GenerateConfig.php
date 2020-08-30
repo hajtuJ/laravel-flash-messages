@@ -17,7 +17,7 @@ class GenerateConfig extends Command
 
         $this->call('vendor:publish', [
             '--provider' => FlashMessagesServiceProvider::class,
-            '--tag' => "config",
+            '--tag'      => 'config',
         ]);
 
         $this->info('Config generated for Laravel Flash Messages');
