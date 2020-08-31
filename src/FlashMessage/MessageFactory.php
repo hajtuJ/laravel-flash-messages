@@ -7,7 +7,6 @@ namespace FlashMessages\FlashMessage;
  */
 class MessageFactory
 {
-
     /**
      * @param string|null $type
      * @param string      $message
@@ -16,6 +15,6 @@ class MessageFactory
      */
     public function build(string $message, string $type = null)
     {
-        return new Message( $message, $type);
+        return new Message($message, $type);
     }
 }
