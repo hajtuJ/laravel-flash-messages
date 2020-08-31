@@ -18,7 +18,7 @@ class FlashMessagesServiceProvider extends ServiceProvider
          * Register service.
          */
         $this->app->singleton(FlashMessageContract::class, function () {
-            return new FlashMessage(config(FlashMessageContract::NAMESPACE));
+            return new FlashMessage($this->app['config'][FlashMessageContract::NAMESPACE]);
         });
 
         /**

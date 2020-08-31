@@ -36,7 +36,7 @@ class FlashMessage implements FlashMessageContract
      */
     private function makeMessage(string $message, string $type = null)
     {
-        return $this->getFactory()->build($this->getConfig()['class'], $message, $type);
+        return $this->getFactory()->build($message, $type);
     }
 
     /**
