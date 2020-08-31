@@ -7,7 +7,6 @@ use Orchestra\Testbench\TestCase as OrchestraTestCaste;
 
 class TestCase extends OrchestraTestCaste
 {
-
     protected function getPackageProviders($app)
     {
         return ['FlashMessages\FlashMessagesServiceProvider'];

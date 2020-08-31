@@ -6,7 +6,6 @@ use FlashMessages\FlashMessageContract;
 
 trait UseConfigTrait
 {
-
     /**
      * @return mixed
      */
@@ -14,5 +13,4 @@ trait UseConfigTrait
     {
         return app()->get('config')[FlashMessageContract::NAMESPACE];
     }
-
 }

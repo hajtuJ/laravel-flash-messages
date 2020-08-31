@@ -6,7 +6,6 @@ use FlashMessages\FlashMessage\Traits\UseConfigTrait as withConfig;
 
 class Message
 {
-
     use withConfig;
 
     /**
@@ -94,6 +93,7 @@ class Message
     private function createClassName(string $type = null)
     {
         $config = $this->getConfig();
+
         return $config['class']['prefix'].$type.$config['class']['suffix'];
     }
 
