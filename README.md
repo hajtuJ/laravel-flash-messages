@@ -55,13 +55,14 @@ public function store() {
     return redirect('/')->successMsg('Your message');
 }
 ```
+
 ```php
 public function store() {
     return back()->successMsg('Your message');
 }
 ```
 ---
-U can use handy helper method:
+You are able to use handy helper method:
 ```php
 public function store() {
     flash('message', 'info');
@@ -76,18 +77,15 @@ public function store() {
 }
 ```
 ---
-You can also receive class of `FlashMessageContract $flash` in constructor method of Your controller:
-
+You can also receive class of `FlashMessageContract $flash` in constructor method of your controller:
 ```php
 public function store(FlashMessageContract $flash) {
     $flash->flashMessage('Hey! Successfully stored resource', 'success');
 }
 ```
-
 ### Setup
 
-You can always export config file and views [
-] to make Your own modifications
+You can always export config file and views to make your own modifications
 
 > exporting config to `config/flash-message.php`
 
@@ -101,7 +99,7 @@ $ php artisan flash-message:config
 $ php artisan flash-message:views
 ```
 
-> you can add own types of messages in config:
+> you can add own types of messages in to config file:
 
 ```php
 /**
@@ -110,7 +108,7 @@ $ php artisan flash-message:views
 'types' => ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
 ```
 
-> to modify class for each type add own sufix and prefixes in config file
+> to modify class for each type add own suffix and prefixes in config file
 
 ```php
 /**
@@ -128,8 +126,6 @@ $ php artisan flash-message:views
 
 If You like my work and U would like to share with me just <br /> 
 <a href="https://www.buymeacoffee.com/hajtuJ" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
-
-
 
 ---
 
