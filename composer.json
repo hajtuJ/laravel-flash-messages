@@ -23,15 +23,15 @@
     "autoload": {
         "psr-4": {
             "FlashMessages\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "FlashMessages\\Tests\\": "tests/"
         },
         "files": [
             "src/helpers/helpers.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FlashMessages\\Tests\\": "tests/"
+        }
     },
     "extra": {
         "laravel": {
