@@ -13,6 +13,8 @@ class TestCase extends OrchestraTestCaste
     protected function setUp(): void
     {
         parent::setUp();
+        $this->artisan('config:clear');
+        $this->refreshApplication();
     }
 
     protected function getPackageProviders($app)
