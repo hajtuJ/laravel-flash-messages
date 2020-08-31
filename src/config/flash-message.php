@@ -12,6 +12,7 @@ return [
      *  for example - successMsg.
      */
     'macro' => [
+        'prefix' => '',
         'suffix' => 'Msg',
     ],
 
