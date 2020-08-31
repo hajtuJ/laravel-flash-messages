@@ -89,6 +89,7 @@ class FlashMessagesServiceProvider extends ServiceProvider
         foreach (config('flash-message.types') as $type) {
             RedirectResponse::macro($flashMessage->getMacroName($type), function (string $message = null) use ($flashMessage, $type) {
                 $flashMessage->flashMessage($message, $type);
+
                 return $this;
             });
         }
