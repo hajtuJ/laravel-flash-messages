@@ -1,8 +1,6 @@
 <?php
 
-
 namespace FlashMessages\Tests\Unit;
-
 
 use FlashMessages\FlashMessage\MessageMacroFactory;
 use FlashMessages\Tests\TestCase;
@@ -11,7 +9,6 @@ use Illuminate\Support\Str;
 
 class MacroNameFactoryTest extends TestCase
 {
-
     /** @test */
     public function is_creating_proper_macro_name()
     {
@@ -40,5 +37,4 @@ class MacroNameFactoryTest extends TestCase
         $macroName = $factory->getName($testType);
         $this->assertEquals($macroName, $prefix.Str::ucfirst($testType).Str::ucfirst($testSuffix));
     }
-
 }
