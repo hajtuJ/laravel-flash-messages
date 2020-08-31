@@ -39,14 +39,30 @@ Add component tag to Your layout template
 <x-flash-message-bootstrap/>
 ```
 
-In Your controller just receive class of `FlashMessageContract $flash` in constructor method of Your controller:
+U can simply call flash messages from macro added to `RedirectResponse`. Macro name is created from config macro values and type of flash message:
+
+> **macro prefix** + type +  **macro suffix**
+
+```php
+public function store() {
+    return redirect('/')->successMsg('Your message');
+}
+```
+
+```php
+public function store() {
+    return back()->successMsg('Your message');
+}
+```
+
+
+You can also receive class of `FlashMessageContract $flash` in constructor method of Your controller:
 
 ```php
 public function store(FlashMessageContract $flash) {
     $flash->flashMessage('success', 'Hey! Successfully stored resource');
 }
 ```
-
 
 ### Setup
 
