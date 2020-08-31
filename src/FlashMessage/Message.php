@@ -26,9 +26,11 @@ class Message
 
     public function __construct(array $config, string $text, string $type = null)
     {
-        $this->setText($text);
-        $this->setType($type);
         $this->setConfig($config);
+        $this->setText($text);
+        if(!is_null($type)) {
+            $this->setType($type);
+        }
     }
 
     /**
@@ -56,14 +58,12 @@ class Message
     }
 
     /**
-     * @param string|null $type
+     * @param string $type
      */
-    public function setType(string $type = null): void
+    public function setType(string $type): void
     {
-        if (!is_null($type)) {
-            $this->type = $type;
-            $this->setClass($type);
-        }
+        $this->type = $type;
+        $this->setClass($type);
     }
 
     /**
