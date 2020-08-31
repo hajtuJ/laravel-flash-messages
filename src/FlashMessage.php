@@ -16,7 +16,7 @@ class FlashMessage implements FlashMessageContract
     use withConfig;
 
     /**
-     * @var $message Message
+     * @var Message
      */
     protected $message = null;
 
@@ -30,7 +30,7 @@ class FlashMessage implements FlashMessageContract
 
     /**
      * @param string|null $type
-     * @param string $message
+     * @param string      $message
      *
      * @return FlashMessage\Message
      */
@@ -67,7 +67,8 @@ class FlashMessage implements FlashMessageContract
 
     /**
      * @param string|null $type
-     * @param string $text
+     * @param string      $text
+     *
      * @return $this
      */
     public function flashMessage(string $text, string $type = null)
@@ -76,6 +77,7 @@ class FlashMessage implements FlashMessageContract
         if ($this->message->flashAble()) {
             $this->getFlasher()->flash($this->message);
         }
+
         return $this;
     }
 
@@ -113,6 +115,7 @@ class FlashMessage implements FlashMessageContract
 
     /**
      * @param $type
+     *
      * @return bool
      */
     private function messageTypeExists($type): bool
@@ -125,6 +128,7 @@ class FlashMessage implements FlashMessageContract
         if ($this->messageCreated() && $this->messageTypeExists($name)) {
             $this->message->setType($name);
             $this->getFlasher()->flash($this->message);
+
             return $this;
         }
     }

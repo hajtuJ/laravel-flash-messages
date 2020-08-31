@@ -1,15 +1,12 @@
 <?php
 
-
 namespace FlashMessages\Tests\Unit;
-
 
 use FlashMessages\FlashMessageContract;
 use FlashMessages\Tests\TestCase;
 
 class HelpersMethodsTest extends TestCase
 {
-
     /** @test */
     public function is_flash_method_exists()
     {
@@ -30,5 +27,4 @@ class HelpersMethodsTest extends TestCase
         $this->assertInstanceOf(FlashMessageContract::class, $message);
         $this->assertTrue($message->hasMessage());
     }
-
 }
