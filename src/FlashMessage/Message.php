@@ -28,7 +28,7 @@ class Message
     {
         $this->setConfig($config);
         $this->setText($text);
-        if(!is_null($type)) {
+        if (!is_null($type)) {
             $this->setType($type);
         }
     }
