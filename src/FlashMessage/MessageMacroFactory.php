@@ -3,6 +3,7 @@
 namespace FlashMessages\FlashMessage;
 
 use FlashMessages\FlashMessage\Traits\UseConfigTrait as WithConfig;
+use Illuminate\Support\Str;
 
 /**
  * Class MessageMacro.
@@ -15,6 +16,10 @@ class MessageMacroFactory
     {
         $config = $this->getConfig();
 
-        return $config['macro']['prefix'].$type.$config['macro']['suffix'];
+        $type = empty($config['macro']['prefix']) ? $type : Str::ucfirst($type);
+        $prefix = $config['macro']['prefix'];
+        $suffix = Str::ucfirst($config['macro']['suffix']);
+
+        return $prefix.$type.$suffix;
     }
 }

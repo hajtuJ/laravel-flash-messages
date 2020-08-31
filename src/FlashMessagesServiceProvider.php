@@ -6,6 +6,7 @@ use FlashMessages\Console\GenerateConfig;
 use FlashMessages\Console\GenerateViews;
 use FlashMessages\Http\Middleware\SeedFlashMessageViewFromSession;
 use FlashMessages\View\Components\Bootstrap;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -52,6 +53,11 @@ class FlashMessagesServiceProvider extends ServiceProvider
         $this->registerMiddlewares();
 
         /**
+         * Register macros.
+         */
+        $this->registerMacros();
+
+        /**
          * Console commands register.
          */
         if ($this->app->runningInConsole()) {
@@ -75,5 +81,16 @@ class FlashMessagesServiceProvider extends ServiceProvider
         /** @var Router $router */
         $router = $this->app['router'];
         $router->pushMiddlewareToGroup('web', SeedFlashMessageViewFromSession::class);
+    }
+
+    private function registerMacros()
+    {
+        $flashMessage = app(FlashMessageContract::class);
+        foreach (config('flash-message.types') as $type) {
+            RedirectResponse::macro($flashMessage->getMacroName($type), function(string $message = null) use ($flashMessage, $type) {
+                $flashMessage->flashMessage($type, $message);
+                return $this;
+            });
+        }
     }
 }

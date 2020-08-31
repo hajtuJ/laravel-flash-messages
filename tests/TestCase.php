@@ -13,8 +13,6 @@ class TestCase extends OrchestraTestCaste
     protected function setUp(): void
     {
         parent::setUp();
-
-        // Your code here
     }
 
     protected function getPackageProviders($app)
