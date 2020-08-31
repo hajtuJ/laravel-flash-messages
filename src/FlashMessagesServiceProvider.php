@@ -8,7 +8,6 @@ use FlashMessages\Http\Middleware\SeedFlashMessageViewFromSession;
 use FlashMessages\View\Components\Bootstrap;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\ServiceProvider;
 
 class FlashMessagesServiceProvider extends ServiceProvider
