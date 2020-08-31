@@ -1,4 +1,4 @@
-name: laravel-flash-messages
+name: Tests
 
 on:
   push:

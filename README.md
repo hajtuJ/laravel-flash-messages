@@ -3,7 +3,10 @@
 > Simple, session based flash messages for Laravel applications.
 
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) [![StyleCI](https://github.styleci.io/repos/291263881/shield?branch=master)]()
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/hajtuj/laravel-flash-messages.svg?style=flat-square)](https://packagist.org/packages/hajtuj/laravel-flash-messages)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) 
+[![StyleCI](https://github.styleci.io/repos/291263881/shield?branch=master)]()
+![](https://github.com/hajtuj/laravel-flash-messages/workflows/Tests/badge.svg?branch=master)
 
 <a href="#"><img src="https://i.imgur.com/Sb5MqCH.png" title="Alerts" alt="Alerts"></a>
 
