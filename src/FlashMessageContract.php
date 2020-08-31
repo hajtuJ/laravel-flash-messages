@@ -17,10 +17,10 @@ interface FlashMessageContract
     public function getMacroName(string $type): string;
 
     /**
-     * @param string $type
+     * @param string|null $type
      * @param string $text
      */
-    public function flashMessage(string $type, string $text);
+    public function flashMessage(string $text, string $type = null);
 
     /**
      * @return bool

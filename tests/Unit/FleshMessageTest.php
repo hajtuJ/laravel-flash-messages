@@ -11,7 +11,7 @@ class FleshMessageTest extends TestCase
     /** @test */
     public function it_set_message()
     {
-        $flashMessage = $this->resolveAndSetFlashMessage($this->caseData['type'], $this->caseData['text']);
+        $flashMessage = $this->resolveAndSetFlashMessage($this->caseData['text'], $this->caseData['type']);
         $setMessage = $flashMessage->getMessage();
         $this->assertEquals($setMessage['text'], $this->caseData['text']);
     }
@@ -19,9 +19,18 @@ class FleshMessageTest extends TestCase
     /** @test */
     public function is_clearing_existing_message()
     {
-        $flashMessage = $this->resolveAndSetFlashMessage($this->caseData['type'], $this->caseData['text']);
+        $flashMessage = $this->resolveAndSetFlashMessage($this->caseData['text'], $this->caseData['type']);
         $flashMessage->forgetMessage();
         $setMessage = $flashMessage->getMessage();
         $this->assertNull($setMessage);
+    }
+
+    /** @test */
+    public function is_creating_message_but_not_flash_without_type()
+    {
+        $flashMessage = $this->resolveAndSetFlashMessage($this->caseData['type']);
+        $this->assertNull($flashMessage->getMessage());
+        $flashMessage->success();
+        $this->assertNotNull($flashMessage->getMessage());
     }
 }

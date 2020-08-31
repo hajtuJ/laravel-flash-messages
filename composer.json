@@ -28,7 +28,10 @@
     "autoload-dev": {
         "psr-4": {
             "FlashMessages\\Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "src/helpers/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {

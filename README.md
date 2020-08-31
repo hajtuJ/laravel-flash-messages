@@ -26,27 +26,63 @@ Just pull package through composer
 ```
 composer require hajtuj/laravel-flash-messages
 ```
-Package is created to work as default with css framework **Twitter Bootstrap v4**. Information how to [add boostrap to Your project](https://getbootstrap.com/docs/4.5/getting-started/introduction/) 
-or simply add inline link to css file of bootstrap: 
-```html
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
-```
-
-## Usage
 
 Add component tag to Your layout template
 ```blade
 <x-flash-message-bootstrap/>
 ```
+---
+Package is created to work as default with css framework **Twitter Bootstrap v4**. Information how to [add boostrap to Your project](https://getbootstrap.com/docs/4.5/getting-started/introduction/) 
+or simply add inline link to css file of bootstrap: 
+```html
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+```
+and js file to make messages able to hide:
+```html
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+```
 
-In Your controller just receive class of `FlashMessageContract $flash` in constructor method of Your controller:
+## Usage
+
+U can simply call flash messages from macro added to `RedirectResponse`. Macro name is created from config macro values and type of flash message:
+
+> **macro prefix** + type +  **macro suffix**
+
+```php
+public function store() {
+    return redirect('/')->successMsg('Your message');
+}
+```
+```php
+public function store() {
+    return back()->successMsg('Your message');
+}
+```
+---
+U can use handy helper method:
+```php
+public function store() {
+    flash('message', 'info');
+    return back();
+}
+```
+or by chaining it with message type:
+```php
+public function store() {
+    flash('message')->success();
+    return back();
+}
+```
+---
+You can also receive class of `FlashMessageContract $flash` in constructor method of Your controller:
 
 ```php
 public function store(FlashMessageContract $flash) {
-    $flash->flashMessage('success', 'Hey! Successfully stored resource');
+    $flash->flashMessage('Hey! Successfully stored resource', 'success');
 }
 ```
-
 
 ### Setup
 

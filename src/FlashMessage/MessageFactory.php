@@ -12,23 +12,14 @@ class MessageFactory
     use WithConfig;
 
     /**
-     * @param string $type
-     *
-     * @return string
-     */
-    private function createClassName(string $type)
-    {
-        return $this->config['class']['prefix'].$type.$this->config['class']['suffix'];
-    }
-
-    /**
-     * @param string $type
+     * @param array $config
+     * @param string|null $type
      * @param string $message
      *
      * @return Message
      */
-    public function build(string $type, string $message)
+    public function build(array $config, string $message, string $type = null)
     {
-        return new Message($type, $message, $this->createClassName($type));
+        return new Message( $config, $message,$type);
     }
 }
