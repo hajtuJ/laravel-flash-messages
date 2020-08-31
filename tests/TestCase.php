@@ -27,12 +27,10 @@ class TestCase extends OrchestraTestCaste
         ];
     }
 
-    protected function resolveAndSetFlashMessage(string $type, string $text): FlashMessageContract
+    protected function resolveAndSetFlashMessage(string $text, string $type = null): FlashMessageContract
     {
         /** @var FlashMessageContract $flashMessage */
         $flashMessage = app()->make(FlashMessageContract::class);
-        $flashMessage->flashMessage($type, $text);
-
-        return $flashMessage;
+        return $flashMessage->flashMessage( $text, $type);
     }
 }
