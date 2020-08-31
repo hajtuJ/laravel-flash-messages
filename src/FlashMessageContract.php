@@ -18,7 +18,7 @@ interface FlashMessageContract
 
     /**
      * @param string|null $type
-     * @param string $text
+     * @param string      $text
      */
     public function flashMessage(string $text, string $type = null);
 

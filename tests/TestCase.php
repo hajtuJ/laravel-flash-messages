@@ -31,6 +31,7 @@ class TestCase extends OrchestraTestCaste
     {
         /** @var FlashMessageContract $flashMessage */
         $flashMessage = app()->make(FlashMessageContract::class);
-        return $flashMessage->flashMessage( $text, $type);
+
+        return $flashMessage->flashMessage($text, $type);
     }
 }

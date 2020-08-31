@@ -1,6 +1,5 @@
 <?php
 
-
 if (!function_exists('flash')) {
 
     /**
@@ -8,6 +7,7 @@ if (!function_exists('flash')) {
      *
      * @param string|null $message
      * @param string|null $type
+     *
      * @return \FlashMessages\FlashMessageContract
      */
     function flash($message = null, $type = null)
@@ -20,5 +20,4 @@ if (!function_exists('flash')) {
 
         return $flashMessage;
     }
-
 }
