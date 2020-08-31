@@ -2,7 +2,7 @@
 
 namespace FlashMessages\FlashMessage;
 
-use FlashMessages\FlashMessage\Traits\UseConfigTrait as WithConfig;
+use FlashMessages\FlashMessage\Traits\UseConfigTrait as withConfig;
 use Illuminate\Support\Str;
 
 /**
@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
  */
 class MessageMacroFactory
 {
-    use WithConfig;
+    use withConfig;
 
     public function getName(string $type): string
     {

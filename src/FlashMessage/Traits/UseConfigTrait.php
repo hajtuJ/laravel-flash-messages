@@ -2,36 +2,17 @@
 
 namespace FlashMessages\FlashMessage\Traits;
 
+use FlashMessages\FlashMessageContract;
+
 trait UseConfigTrait
 {
-    /**
-     * @var array
-     */
-    protected $config;
-
-    /**
-     * MessageMacro constructor.
-     *
-     * @param array|null $config
-     */
-    public function __construct(array $config = null)
-    {
-        $this->setConfig($config);
-    }
 
     /**
      * @return mixed
      */
     public function getConfig()
     {
-        return $this->config;
+        return app()->get('config')[FlashMessageContract::NAMESPACE];
     }
 
-    /**
-     * @param mixed $config
-     */
-    public function setConfig($config): void
-    {
-        $this->config = $config;
-    }
 }

@@ -25,7 +25,7 @@ class FlashMessage implements FlashMessageContract
      */
     private function getFactory(): MessageFactory
     {
-        return new MessageFactory($this->getConfig());
+        return new MessageFactory();
     }
 
     /**
@@ -52,7 +52,7 @@ class FlashMessage implements FlashMessageContract
      */
     private function getMessageMacroFactory(): MessageMacroFactory
     {
-        return new MessageMacroFactory($this->getConfig());
+        return new MessageMacroFactory();
     }
 
     /**
@@ -120,7 +120,7 @@ class FlashMessage implements FlashMessageContract
      */
     private function messageTypeExists($type): bool
     {
-        return in_array($type, $this->config['types']);
+        return in_array($type, $this->getConfig()['types']);
     }
 
     public function __call(string $name, array $arguments)

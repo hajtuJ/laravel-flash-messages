@@ -12,13 +12,11 @@ class MacroNameFactoryTest extends TestCase
     /** @test */
     public function is_creating_proper_macro_name()
     {
-        $this->refreshApplication();
-
         $testSuffix = 'suffix';
         $testType = 'test';
-        Config::set('flash-messsage.macro', ['suffix' => $testSuffix, 'prefix' => '']);
+        Config::set('flash-message.macro', ['suffix' => $testSuffix, 'prefix' => '']);
 
-        $factory = new MessageMacroFactory(Config::get('flash-messsage'));
+        $factory = new MessageMacroFactory();
         $macroName = $factory->getName($testType);
         $this->assertEquals($macroName, $testType.Str::ucfirst($testSuffix));
     }
@@ -26,14 +24,12 @@ class MacroNameFactoryTest extends TestCase
     /** @test */
     public function is_camelcase_macro_name_when_prefix_presented()
     {
-        $this->refreshApplication();
-
         $testSuffix = 'suffix';
         $prefix = 'prefix';
         $testType = 'test';
-        Config::set('flash-messsage.macro', ['suffix' => $testSuffix, 'prefix' => $prefix]);
+        Config::set('flash-message.macro', ['suffix' => $testSuffix, 'prefix' => $prefix]);
 
-        $factory = new MessageMacroFactory(Config::get('flash-messsage'));
+        $factory = new MessageMacroFactory();
         $macroName = $factory->getName($testType);
         $this->assertEquals($macroName, $prefix.Str::ucfirst($testType).Str::ucfirst($testSuffix));
     }

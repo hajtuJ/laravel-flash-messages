@@ -7,15 +7,6 @@ use Orchestra\Testbench\TestCase as OrchestraTestCaste;
 
 class TestCase extends OrchestraTestCaste
 {
-    /**
-     * Setup the test environment.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->artisan('config:clear');
-        $this->refreshApplication();
-    }
 
     protected function getPackageProviders($app)
     {

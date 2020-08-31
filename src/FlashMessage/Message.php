@@ -2,8 +2,13 @@
 
 namespace FlashMessages\FlashMessage;
 
+use FlashMessages\FlashMessage\Traits\UseConfigTrait as withConfig;
+
 class Message
 {
+
+    use withConfig;
+
     /**
      * @var string|null
      */
@@ -24,29 +29,12 @@ class Message
      */
     protected $config;
 
-    public function __construct(array $config, string $text, string $type = null)
+    public function __construct(string $text, string $type = null)
     {
-        $this->setConfig($config);
         $this->setText($text);
         if (!is_null($type)) {
             $this->setType($type);
         }
-    }
-
-    /**
-     * @return array
-     */
-    public function getConfig()
-    {
-        return $this->config;
-    }
-
-    /**
-     * @param array $config
-     */
-    public function setConfig(array $config): void
-    {
-        $this->config = $config;
     }
 
     /**
@@ -105,7 +93,8 @@ class Message
      */
     private function createClassName(string $type = null)
     {
-        return $this->config['prefix'].$type.$this->config['suffix'];
+        $config = $this->getConfig();
+        return $config['class']['prefix'].$type.$config['class']['suffix'];
     }
 
     public function flashAble(): bool
