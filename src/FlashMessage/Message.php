@@ -5,25 +5,46 @@ namespace FlashMessages\FlashMessage;
 class Message
 {
     /**
-     * @var string
+     * @var string|null
      */
-    protected $type;
+    protected $type = null;
 
     /**
      * @var string
      */
-    protected $text;
+    protected $text = '';
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected $class;
+    protected $class = null;
 
-    public function __construct(string $type, string $text, string $class)
+    /**
+     * @var array
+     */
+    protected $config;
+
+    public function __construct(array $config, string $text, string $type = null)
     {
-        $this->setType($type);
         $this->setText($text);
-        $this->setClass($class);
+        $this->setType($type);
+        $this->setConfig($config);
+    }
+
+    /**
+     * @return array
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * @param array $config
+     */
+    public function setConfig(array $config): void
+    {
+        $this->config = $config;
     }
 
     /**
@@ -35,11 +56,14 @@ class Message
     }
 
     /**
-     * @param string $type
+     * @param string|null $type
      */
-    public function setType(string $type): void
+    public function setType(string $type = null): void
     {
-        $this->type = $type;
+        if (!is_null($type)) {
+            $this->type = $type;
+            $this->setClass($type);
+        }
     }
 
     /**
@@ -71,7 +95,22 @@ class Message
      */
     public function setClass(string $class): void
     {
-        $this->class = $class;
+        $this->class = $this->createClassName($class);
+    }
+
+    /**
+     * @param string|null $type
+     *
+     * @return string
+     */
+    private function createClassName(string $type = null)
+    {
+        return $this->config['prefix'].$type.$this->config['suffix'];
+    }
+
+    public function flashAble(): bool
+    {
+        return !is_null($this->type);
     }
 
     public function toArray()
